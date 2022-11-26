@@ -1,9 +1,5 @@
 import { Module } from '@nestjs/common';
-
 import { MongooseModule } from '@nestjs/mongoose';
-
-
-import { join } from 'path';
 import { ConfigModule } from '@nestjs/config';
 import { NoteModule } from './note/note.module';
 import { AppController } from './app.controller';

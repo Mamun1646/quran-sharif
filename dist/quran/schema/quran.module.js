@@ -6,29 +6,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.QuranModule = void 0;
 const common_1 = require("@nestjs/common");
+const quran_service_1 = require("./quran.service");
+const quran_controller_1 = require("./quran.controller");
 const mongoose_1 = require("@nestjs/mongoose");
-const config_1 = require("@nestjs/config");
-const note_module_1 = require("./note/note.module");
-const app_controller_1 = require("./app.controller");
-const quran_module_1 = require("./quran/quran.module");
-let AppModule = class AppModule {
+const quran_schema_1 = require("./schema/quran.schema");
+let QuranModule = class QuranModule {
 };
-AppModule = __decorate([
+QuranModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            config_1.ConfigModule.forRoot({
-                isGlobal: true,
-                envFilePath: '.prod.env'
-            }),
-            mongoose_1.MongooseModule.forRoot(process.env.MONGO_URL),
-            quran_module_1.QuranModule,
-            note_module_1.NoteModule,
+            mongoose_1.MongooseModule.forFeature([{ name: quran_schema_1.Quran.name, schema: quran_schema_1.QuranSchema }]),
         ],
-        controllers: [app_controller_1.AppController],
-        providers: [],
+        controllers: [quran_controller_1.QuranController],
+        providers: [quran_service_1.QuranService],
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], QuranModule);
+exports.QuranModule = QuranModule;
+//# sourceMappingURL=quran.module.js.map

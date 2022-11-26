@@ -9,9 +9,10 @@ export class QuranController {
     return this.quranService.findAll();
   }
 
-  @Get("search")
- keySearch(@Body() keyword: string) {
-    return this.quranService.versesFindByWord(keyword);
+  @Get(":search")
+ keySearch(@Param() keyword):Promise<any> {
+  
+    return this.quranService.versesFindBySurah(keyword.search);
   }
 
 

@@ -31,6 +31,7 @@ let QuranService = class QuranService {
         });
     }
     async versesFindByWord(data) {
+        console.log(data);
         const regex = new RegExp(data, 'i');
         const result = await this.quranModel.find({}, {
             verses: {
@@ -41,7 +42,7 @@ let QuranService = class QuranService {
             _id: 0,
             transliteration: 1,
             translation: 1,
-            id: 1
+            id: 0
         });
         return result;
     }

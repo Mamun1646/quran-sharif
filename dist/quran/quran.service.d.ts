@@ -7,5 +7,5 @@ export declare class QuranService {
         _id: import("mongoose").Types.ObjectId;
     })[]>;
     versesFindBySurah(data: string): Promise<Quran[]>;
-    versesFindByWord(data: string): Promise<Quran[]>;
+    versesFindByWord(data: string): Promise<any>;
 }

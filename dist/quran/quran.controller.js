@@ -23,7 +23,7 @@ let QuranController = class QuranController {
         return this.quranService.findAll();
     }
     keySearch(keyword) {
-        return this.quranService.versesFindByWord(keyword);
+        return this.quranService.versesFindBySurah(keyword.search);
     }
 };
 __decorate([
@@ -33,11 +33,11 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], QuranController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)("search"),
-    __param(0, (0, common_1.Body)()),
+    (0, common_1.Get)(":search"),
+    __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
 ], QuranController.prototype, "keySearch", null);
 QuranController = __decorate([
     (0, common_1.Controller)(),

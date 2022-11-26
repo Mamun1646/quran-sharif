@@ -23,6 +23,10 @@ let NoteController = class NoteController {
     findNote() {
         return this.noteService.findAll();
     }
+    async Surah_Name(param) {
+        const { day } = param;
+        return await this.noteService.findNoteByDay(day);
+    }
     createNote(createNoteInput) {
         return this.noteService.create(createNoteInput);
     }
@@ -33,6 +37,13 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], NoteController.prototype, "findNote", null);
+__decorate([
+    (0, common_1.Get)(':day'),
+    __param(0, (0, common_1.Param)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], NoteController.prototype, "Surah_Name", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),

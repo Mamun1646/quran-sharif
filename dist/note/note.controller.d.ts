@@ -33,6 +33,7 @@ export declare class NoteController {
     })[], import("mongoose").Document<unknown, any, import("./schema/note.schema").NoteDocument> & import("./schema/note.schema").Note & Document & {
         _id: import("mongoose").Types.ObjectId;
     }, {}, import("./schema/note.schema").NoteDocument>;
+    Surah_Name(param: any): Promise<any>;
     createNote(createNoteInput: CreateNoteInput): Promise<import("mongoose").Document<unknown, any, import("./schema/note.schema").NoteDocument> & import("./schema/note.schema").Note & Document & {
         _id: import("mongoose").Types.ObjectId;
     }>;

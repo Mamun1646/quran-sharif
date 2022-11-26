@@ -9,11 +9,15 @@ export class QuranController {
     return this.quranService.findAll();
   }
 
-  @Get(":search")
- keySearch(@Param() keyword):Promise<any> {
+//   @Get(":search")
+//  surah_search(@Param() surah):Promise<any> {
   
-    return this.quranService.versesFindBySurah(keyword.search);
-  }
-
+//     return this.quranService.versesFindBySurah(surah.search);
+//   }
+  @Get(":word")
+   async keyword(@Param() param):Promise<any> {
+   console.log(param)
+     return await this.quranService.versesFindByWord(param.word);
+   }
 
 }

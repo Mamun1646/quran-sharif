@@ -42,7 +42,7 @@ let QuranService = class QuranService {
             _id: 0,
             transliteration: 1,
             translation: 1,
-            id: 0
+            id: 1
         });
         return result;
     }

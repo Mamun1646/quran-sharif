@@ -22,8 +22,9 @@ let QuranController = class QuranController {
     findAll() {
         return this.quranService.findAll();
     }
-    keySearch(keyword) {
-        return this.quranService.versesFindBySurah(keyword.search);
+    async keyword(param) {
+        console.log(param);
+        return await this.quranService.versesFindByWord(param.word);
     }
 };
 __decorate([
@@ -33,12 +34,12 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], QuranController.prototype, "findAll", null);
 __decorate([
-    (0, common_1.Get)(":search"),
+    (0, common_1.Get)(":word"),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", Promise)
-], QuranController.prototype, "keySearch", null);
+], QuranController.prototype, "keyword", null);
 QuranController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [quran_service_1.QuranService])

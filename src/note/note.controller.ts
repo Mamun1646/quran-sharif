@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { NoteService } from './note.service';
 import { CreateNoteInput } from './dto/create-note.input';
-import { clearConfigCache } from 'prettier';
+
 
 @Controller("note")
 export class NoteController {

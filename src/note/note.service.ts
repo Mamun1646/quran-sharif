@@ -2,7 +2,7 @@ import { Injectable, Param } from '@nestjs/common';
 import { CreateNoteInput } from './dto/create-note.input';
 
 import { Note, NoteDocument } from './schema/note.schema';
-import { Model } from 'mongoose';
+import { Model } from "mongoose";
 import { InjectModel } from '@nestjs/mongoose';
 import { clearConfigCache } from 'prettier';
 

@@ -31,6 +31,7 @@ export declare class NoteService {
     create(createNoteInput: CreateNoteInput): Promise<import("mongoose").Document<unknown, any, NoteDocument> & Note & Document & {
         _id: import("mongoose").Types.ObjectId;
     }>;
+    findSurah(data: string): Promise<Note[]>;
     findNoteByDay(day: number): Promise<any>;
     findAll(): import("mongoose").Query<(import("mongoose").Document<unknown, any, NoteDocument> & Note & Document & {
         _id: import("mongoose").Types.ObjectId;

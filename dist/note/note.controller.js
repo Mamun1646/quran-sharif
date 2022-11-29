@@ -23,6 +23,10 @@ let NoteController = class NoteController {
     findNote() {
         return this.noteService.findAll();
     }
+    async search(param) {
+        const { word } = param;
+        return await this.noteService.findSurah(word);
+    }
     async Surah_Name(param) {
         const { day } = param;
         return await this.noteService.findNoteByDay(day);
@@ -38,7 +42,14 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], NoteController.prototype, "findNote", null);
 __decorate([
-    (0, common_1.Get)(':day'),
+    (0, common_1.Get)("surah/:word"),
+    __param(0, (0, common_1.Param)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], NoteController.prototype, "search", null);
+__decorate([
+    (0, common_1.Get)(":day"),
     __param(0, (0, common_1.Param)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
@@ -52,7 +63,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], NoteController.prototype, "createNote", null);
 NoteController = __decorate([
-    (0, common_1.Controller)('note'),
+    (0, common_1.Controller)("note"),
     __metadata("design:paramtypes", [note_service_1.NoteService])
 ], NoteController);
 exports.NoteController = NoteController;

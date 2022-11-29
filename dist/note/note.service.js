@@ -24,12 +24,18 @@ let NoteService = class NoteService {
     async create(createNoteInput) {
         return this.noteModel.create(createNoteInput);
     }
+    async findSurah(data) {
+        const regex = new RegExp(data, "i");
+        return await this.noteModel.find({
+            note: { $regex: regex },
+        });
+    }
     async findNoteByDay(day) {
         const date = new Date();
         const currentDate = date.getDate();
         const filterDay = currentDate - day;
         return await this.noteModel.find({
-            day: { $gte: filterDay }
+            day: { $gte: filterDay },
         });
     }
     findAll() {

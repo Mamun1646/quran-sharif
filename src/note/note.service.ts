@@ -5,7 +5,7 @@ import { Note, NoteDocument } from './schema/note.schema';
 import { Model } from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose';
 import { clearConfigCache } from 'prettier';
-// import { NoteModule } from './note.module';
+
 
 
 @Injectable()
@@ -15,24 +15,23 @@ export class NoteService {
     return this.noteModel.create(createNoteInput);
   }
 
-  async findNoteByDay(day: number): Promise<any> {
-     
-    
-    const date = new Date();
-    const currentDate =date.getDate();
-    const filterDay=currentDate-day
+  async findSurah(data: string): Promise<Note[]> {
+    const regex = new RegExp(data, "i");
     return await this.noteModel.find({
-       day: { $gte: filterDay} 
-    }
-      
-    );
+      note: { $regex: regex },
+    });
   }
 
+  async findNoteByDay(day: number): Promise<any> {
+    const date = new Date();
+    const currentDate = date.getDate();
+    const filterDay = currentDate - day;
+    return await this.noteModel.find({
+      day: { $gte: filterDay },
+    });
+  }
 
   findAll() {
     return this.noteModel.find();
   }
-
-
-
 }

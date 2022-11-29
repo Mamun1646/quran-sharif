@@ -22,17 +22,27 @@ let QuranController = class QuranController {
     findAll() {
         return this.quranService.findAll();
     }
+    surah_search(surah) {
+        return this.quranService.versesFindBySurah(surah.search);
+    }
     async keyword(param) {
         console.log(param);
         return await this.quranService.versesFindByWord(param.word);
     }
 };
 __decorate([
-    (0, common_1.Get)('quran'),
+    (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], QuranController.prototype, "findAll", null);
+__decorate([
+    (0, common_1.Get)("name/:search"),
+    __param(0, (0, common_1.Param)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", Promise)
+], QuranController.prototype, "surah_search", null);
 __decorate([
     (0, common_1.Get)(":word"),
     __param(0, (0, common_1.Param)()),
@@ -41,7 +51,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], QuranController.prototype, "keyword", null);
 QuranController = __decorate([
-    (0, common_1.Controller)(),
+    (0, common_1.Controller)('quran'),
     __metadata("design:paramtypes", [quran_service_1.QuranService])
 ], QuranController);
 exports.QuranController = QuranController;

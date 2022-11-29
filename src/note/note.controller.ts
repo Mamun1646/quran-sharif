@@ -3,7 +3,7 @@ import { NoteService } from './note.service';
 import { CreateNoteInput } from './dto/create-note.input';
 import { clearConfigCache } from 'prettier';
 
-@Controller('note')
+@Controller("note")
 export class NoteController {
   constructor(private readonly noteService: NoteService) {}
 
@@ -11,21 +11,16 @@ export class NoteController {
   findNote() {
     return this.noteService.findAll();
   }
-  @Get(':day')
+  @Get("surah/:word")
+  async search(@Param() param): Promise<any> {
+    const { word } = param;
+    return await this.noteService.findSurah(word);
+  }
+  @Get(":day")
   async Surah_Name(@Param() param): Promise<any> {
-     const {day}= param;
+    const { day } = param;
     return await this.noteService.findNoteByDay(day);
   }
-
-
-
-
-
-
-
-
-
-
 
   @Post()
   createNote(@Body() createNoteInput: CreateNoteInput) {
